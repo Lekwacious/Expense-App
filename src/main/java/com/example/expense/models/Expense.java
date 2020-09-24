@@ -4,22 +4,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
+import java.time.Instant;
 import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Entity
-public class User {
+@Data
+public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private String description;
 
-    private String email;
+    private Instant expenseDate;
 
-    @OneToMany
-    private Set<Category> category;
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Category category;
 }

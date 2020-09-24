@@ -3,6 +3,8 @@ package com.example.expense.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+
 
 import javax.persistence.*;
 
@@ -12,11 +14,11 @@ import javax.persistence.*;
 @Entity
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
+    @NonNull
     private String name;
 
-    @ManyToOne
-    private User user;
+
 }
